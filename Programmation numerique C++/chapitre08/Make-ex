@@ -1,0 +1,15 @@
+CXX=g++ 
+
+all: exemple
+
+
+exemple: ddouble.o exemple.o
+	$(CXX) $^ -o $@ $(GLLIBS)
+
+.cpp.o:
+	$(CXX) -c  $< $(GLINS)
+
+#  les dependances 
+
+exemple.o: ddouble.h
+ddouble.o: ddouble.h

@@ -1,0 +1,58 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+                  CHAPITRE 3
+
+==========================================================================
+Bibliothèques  -> à inclure avec la commande #insert "Nom.hpp"
+============      avant la commande using namespace std;
+               -> il est recommandé de ne pas modifier ces fichiers
+==========================================================================
+RNM.hpp         | classe performantes pour la modélisation des vecteurs 
+RNM_op.hpp      |       matrices, tenseurs (voir chap3, page 93)
+RNM_opc.hpp     |il suffit d'inclure #include "RNM.hpp"
+RNM_tpl.hpp     | (les autres fichiers sont appeles automatiquement)
+--------------------------------------------------------------------------
+GC.hpp          | implémente l'algorithme du gradient conjugué
+                | Listing 3.3, page 101
+                | contient aussi la définition de la matrice identité
+                | comme matrice virtuelle
+--------------------------------------------------------------------------
+
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+TClassA.cpp       | List 3.1 |  87   | un exemple de classe tableau
+                  |          |       | avec les différentes déf des opérateurs
+--------------------------------------------------------------------------
+Ex_Utilisation_RNM| List 3.2 |  94   | programme qui explore les possibilités
+            .cpp  |          |       |  des classes RNM
+--------------------------------------------------------------------------    
+ailette_GC.cpp    | List 3.4 | 103   | problème de l'ailette 1D 
+                  |          |       |  le syst linéaire est résolu par la
+                  |          |       |  méthode du gradient conjugué
+-------------------------------------------------------------------------- 
+test_imageF.cpp   | List 3.5 | 107   | construit l'image réciproque
+                  |          |       |    d'un tableau
+-------------------------------------------------------------------------- 
+test_imageF-liste | List 3.6 | 108   | création des listes chainées d'objets
+            .cpp  |          |       |  définis en templates
+-------------------------------------------------------------------------- 
+test_morse.cpp    | List 3.7 | 112   | exemple de stockage Morse d'une matrice
+                  |          |       |    en utilisant les classes RNM
+--------------------------------------------------------------------------
+test_heapsort.cpp |          | 115   | exemple d'utilisation de la fonction
+                  |          |       |    HeapSort avec la classe Complex
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+  make -f Make-tous
+   va créer les exécutables pour tous ces programmes
+--------------------------------------------------------------------------

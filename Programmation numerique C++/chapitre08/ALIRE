@@ -1,0 +1,34 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+                  CHAPITRE 8
+==========================================================================
+Bibliothèques  -> à inclure avec la commande #insert "Nom.hpp"
+============      avant la commande using namespace std;
+               -> il est recommandé de ne pas modifier ces fichiers
+==========================================================================
+ddouble.hpp     | List 8.5 | page 260| la librairie complète pour la 
+--------------------------------------  différentiation automatique (DA)
+ddouble.cpp     | List 8.6 | page 262|
+--------------------------------------------------------------------------
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+exemple.cpp       | List 8.7 | 265   | exemple d'utilisation de la DA
+                                (pour la compilation : make -f Make-ex)
+--------------------------------------------------------------------------
+dot.f             | List 8.3 | 258   | un exemple de programme Fortran
+--------------------------------------------------------------------------
+dot.cpp           | List 8.4 | 258   | traduction du programme dot.f par f2c
+                  |          |       |  et adaptation pour l'utilisation de
+                  |          |       |  la DA (voir page 259)
+                                (pour la compilation : make -f Make-dot)
+--------------------------------------------------------------------------

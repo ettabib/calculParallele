@@ -1,0 +1,7 @@
+    /* fichier trace.edp */
+   border a(t=0, 2*pi){ x= cos(t); y = sin(t)};
+   mesh th = buildmesh("tracemesh.ps", a(50) );
+   savemesh("trace.msh");
+   f = x * y;
+   plot("tracef.ps",f);
+   save("trace.dta",f);

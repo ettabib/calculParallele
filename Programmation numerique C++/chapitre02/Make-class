@@ -1,0 +1,19 @@
+  
+PROG1=ClassVide
+PROG2=ClassComplex
+PROG3=ClassVect
+PROG4=ClassAB
+PROG5=ClassABC
+
+CXXFLAGS= -g
+
+all: 
+	g++   $(PROG1).cpp -o $(PROG1).exe
+	g++   $(PROG2).cpp -o $(PROG2).exe
+	g++   $(PROG3).cpp -o $(PROG3).exe
+	g++   $(PROG4).cpp -o $(PROG4).exe
+	g++   $(PROG5).cpp -o $(PROG5).exe
+
+.cpp.o:
+	g++ -c $(CXXFLAGS) $< 
+

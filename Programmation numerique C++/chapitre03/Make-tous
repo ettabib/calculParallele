@@ -1,0 +1,25 @@
+  
+PROG1=TClassA
+PROG2=Ex_Utilisation_RNM
+PROG3=ailette_GC
+PROG4=test-imageF
+PROG5=test-imageF-liste
+PROG6=test-morse
+PROG7=test-heapsort
+
+CXXFLAGS= -g
+
+all: 
+	g++   $(PROG1).cpp -o $(PROG1).exe
+	g++   $(PROG2).cpp -o $(PROG2).exe
+	g++   $(PROG3).cpp -o $(PROG3).exe
+	g++   $(PROG4).cpp -o $(PROG4).exe
+	g++   $(PROG5).cpp -o $(PROG5).exe
+	g++   $(PROG6).cpp -o $(PROG6).exe
+	g++   $(PROG7).cpp -o $(PROG7).exe
+
+.cpp.o:
+	g++ -c $(CXXFLAGS) $< 
+
+
+

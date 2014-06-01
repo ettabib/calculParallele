@@ -1,0 +1,8 @@
+i=10;
+pi=4*atan(1);
+while(i) {
+  i=i-1;
+  print "i = ",i," ",cos(i*pi/10)," 
+"; 
+}
+print i;

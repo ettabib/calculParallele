@@ -1,0 +1,13 @@
+real L=40,H=20;
+real H2L=H/(2*L);
+border Gamma1(t=0,H2L) {label=1;x=0;y=t;};
+border Gamma2(t=0,1)   {label=2;x=t;y=0;};
+border Gamma3(t=0,H2L) {label=3;x=1;y=t;};
+border Gamma4(t=0,1)   {label=4;x=t;y=H2L;};
+
+int nbsegy= 10;
+mesh Th=buildmesh(Gamma1(-nbsegy)+Gamma2(nbsegy/H2L)+Gamma3(nbsegy)+Gamma4(-nbsegy/H2L));
+
+plot(Th,wait=1);
+savemesh(Th,"Th.msh");
+

@@ -1,0 +1,10 @@
+List=Bug           ClassAB       ClassComplex   ailette2      ailette_LU \
+     ClassABC      ClassVect     ClassVide     ailette3      ailette_mvar
+
+all:$(List)
+	echo "on a fini"
+testall: $(List)
+	for i in $(List); do echo " exec .:$$i";./$$i; done 
+clean:
+	-rm $(List) 
+	-rm *.dat *~

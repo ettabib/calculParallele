@@ -1,0 +1,8 @@
+print 2*3+4, " == 10
+";
+mesh "carre.msh";
+solution u;
+solution f;
+f=x+y;
+solve(u) 1 u +div 1 grad u = x+y;
+a=1;

@@ -1,0 +1,96 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+                  CHAPITRE 4
+
+Commentaires
+============
+
+1) Les fichiers .edp sont des scripts FreeFem++ ; ils ont été testés
+    avec la version 1.3 qui est disponible à l'adresse
+      http://www.freefem.org
+
+2) Le fichier Th.msh contenant le maillage de l'ailette 2D est dans ce dossier,
+   permettant d'exécuter les applications sfemGC sans avoir besoin d'installer
+   FreeFem++ 
+
+3) Dans les programmes suivantes, l'ailette 2D a les dimensions
+    L=40,H=20 ; pour retrouver les résultats du livre il faut prendre H=4.
+
+==========================================================================
+Bibliothèques  -> à inclure avec la commande #insert "Nom.hpp"
+============      avant la commande using namespace std;
+               -> il est recommandé de ne pas modifier ces fichiers
+==========================================================================
+assertion.hpp   | assertions utilisateur (voir page 80)
+--------------------------------------------------------------------------
+RNM.hpp         | classe performantes pour la modélisation des vecteurs 
+RNM_op.hpp      |       matrices, tenseurs (voir chap3, page 93)
+RNM_opc.hpp     |il suffit d'inclure #include "RNM.hpp"
+RNM_tpl.hpp     | (les autres fichiers sont appelés automatiquement)
+--------------------------------------------------------------------------
+GC.hpp          | implémente l'algorithme du gradient conjugué
+                | Listing 3.3, page 101
+                | contient aussi la définition de la matrice identité
+                | comme matrice virtuelle
+--------------------------------------------------------------------------
+sfem.hpp        | contient les classes pour les éléments finis P1
+                |  discutées dans le paragraphe 4.5 page 134
+                | (il contient également le constructeur de la classe Mesh)
+--------------------------------------------------------------------------
+HeapSort.hpp    | implémentation de l'algorithme de tri Heapsort
+                |  (page 115)
+--------------------------------------------------------------------------
+
+
+
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+cercle.edp        | List 4.1 | 131   | script FreeFem++ 
+                  |          |       | maillage d'un cercle
+--------------------------------------------------------------------------
+carre.edp         | List 4.2 | 133   | script FreeFem++ 
+                  |          |       | maillage d'un carre
+--------------------------------------------------------------------------
+exoFreeFem_1.edp  | Ex 4.2 q1| 132   | scripts FreeFem++ 
+exoFreeFem_2.edp  | Ex 4.2 q2|       | exemples d'utilisation
+exoFreeFem_3.edp  | Ex 4.2 q3|       | 
+--------------------------------------------------------------------------
+femGC.edp         | List 4.17| 145   | script FreeFem++ 
+                  |          |       | maillage de l'ailette 2D 
+                  |          |       | -> génère le fichier Th.msh
+--------------------------------------------------------------------------
+sfemGC.cpp        | List 4.18| 146   | résolution par éléments finis
+                  |          |       | du pb de l'ailette 2D 
+                  |          |       | (make -f Make-sfemGC)
+                  |          |       | -> utilise le fichier Th.msh
+                  |          |       | -> écrit les fichiers plot-1 ..etc
+                  |          |       |           pour gnuplot
+--------------------------------------------------------------------------
+sfemGC-2.cpp      |          |       | le même que sfemGC.cpp, mais avec
+-contient la fct  |          |       |  plus de sorties 
+gnuplot_iso       |          |       |  -> axe-1 ...(valeurs sur l'axe)
+Listing 4.19, p156|          |       |  -> iso-1 ...(iso-valeurs)
+                  |          |       |  -> iso-1-gnuplot ... (script gnuplot)
+                  |          |       |  -> t-1.dta ...(seront utilisés dans le chap 5)
+--------------------------------------------------------------------------------------
+sfemGC-3.cpp      |Ex 4.7    | 162   | le même que sfemGC-2.cpp
+                  |          |       |  + comparaison avec les résultats FreeFem++ 
+                  |          |       |  -> utilise le fichier freefem.sol
+                  |          |       |     généré par le script FreeFem++ ailette.edp
+--------------------------------------------------------------------------------------
+ailette.edp       | List 4.20| 161   | solution du pb de l'ailette 2D
+                  |          |       |   par FreeFem++ (script complet)
+--------------------------------------------------------------------------------------
+MatMorse.hpp      | List 4.22| 168   | construction par coloriage de la matrice
+MatMorse.cpp      | List 4.23| 169   |  pour les éléments finis (stockage Morse)
+--------------------------------------------------------------------------------------

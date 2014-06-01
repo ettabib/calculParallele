@@ -1,0 +1,5 @@
+  int n=10;
+  border a(t=0, 2*pi){ x= cos(t); y = sin(t);};
+  mesh Th = buildmesh( a(n) );
+  savemesh(Th,"cercle.msh");
+  plot(Th,ps="cercle.eps");

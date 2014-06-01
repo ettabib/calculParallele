@@ -1,0 +1,28 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+Les programmes sont organisés par dossiers correspondant 
+à chaque chapitre du livre.  Chaque dossier contient un
+fichier "ALIRE" qui  rappelle la correspondance entre les
+noms des programmes et les numéros des listings du livre 
+(ou des exercices proposés).
+
+Les programmes C++ ont été légèrment modifiés par rapport 
+aux listings du livre afin d'assurer la compatibilité avec
+le compilateur gcc version 3.2 qui impose la déclaration
+de la fonction "main" de type "int". 
+Ce compilateur est présent dans : 
+- les distributions Linux, à partir de  Mandrake 9.0 et Red Hat 8.0;
+- la distribution Cygwin, à partir de 2.05;
+- sur MacOS 10.2.
+
+
+Les applications plus complexes disposent d'un fichier Makefile
+qui permet d'automatiser les phases de compilation/édition des 
+liens (voir le paragraphe 2.5.4 du livre).

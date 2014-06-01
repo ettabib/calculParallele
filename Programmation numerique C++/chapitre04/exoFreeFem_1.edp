@@ -1,0 +1,23 @@
+    /* exercice 4.2, question 1 */
+//=================================================
+// le carre
+//          a3
+//    --------------
+//    |            |
+//  a4|            |a2
+//    |            |
+//    --------------
+//          a1
+
+   border a1(t=-0.5, 0.5){ x= t; y = -0.5;};
+   border a2(t=-0.5, 0.5){ x= 0.5; y = t;};
+   border a3(t=-0.5, 0.5){ x= t; y = 0.5;};
+   border a4(t=-0.5, 0.5){ x= -0.5; y = t;};
+
+// l'ellipse
+  border e(t=0, 2*pi){ x= 0.2*cos(t); y = 0.1*sin(t);};
+
+// maillage avec trou
+   int n=10;int m=15;
+   mesh carre1 = buildmesh(a1(n)+a2(n)+a3(-n)+a4(-n)+e(-m));
+   plot(carre1,wait=1);

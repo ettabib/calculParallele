@@ -1,0 +1,51 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+                  CHAPITRE 2
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+ailette2.cpp      | List 2.1 |  48   | programmation procédurale 
+                  |          |       | du prog ailette.cpp (List 1.1)
+--------------------------------------------------------------------------
+ailette3.cpp      |          |       | le même que "ailette.cpp"
+                  |          |       |   mais sans commentaires
+--------------------------------------------------------------------------
+ailette_LU.cpp    | Ex 2.1   |  57   |  utilise la méthode LU pour
+                  |          |       | la résolution du syst. tridiagonal
+--------------------------------------------------------------------------
+ailette_mvar.cpp  | Ex 2.2   |  57   |  utilise un maillage variable 
+                  |          |       |  pour la discrétisation en espace
+--------------------------------------------------------------------------
+       make -f Make-ailette
+   va créer les exécutables pour tous les fichiers "ailette..."
+--------------------------------------------------------------------------
+ClassVide.cpp     | List 2.2 |  60   | exemple de classe C++
+--------------------------------------------------------------------------
+ClassComplex.cpp  | List 2.3 |  64   | exemple de templates
+--------------------------------------------------------------------------
+ClassVect.cpp     | List 2.4 |  66   | exemple d'une classe vecteur
+--------------------------------------------------------------------------
+ClassAB.cpp       | List 2.5 |  70   | exemple de relation d'héritage
+--------------------------------------------------------------------------
+ClassABC.cpp      | List 2.6 |  73   | exemple de fonctions virtuelles
+--------------------------------------------------------------------------
+Bug.cpp           | List 2.7 |  78   | exemple de ce qu'il ne faut pas faire
+--------------------------------------------------------------------------
+       make -f Make-class
+   va créer les exécutables pour tous les fichiers "Class..."
+--------------------------------------------------------------------------
+Makefile          | List 2.8 |  83   | exemple de fichier Makefile pour une
+                  |          |       | application avec deux programmes sources
+-------------------------------------------------------------------------------
+assertion.hpp     |          |  80   | fichier d'en-tete pour utiliser les 
+                  |          |       | assertions de l'utilisateur (voir page 80)
+--------------------------------------------------------------------------------

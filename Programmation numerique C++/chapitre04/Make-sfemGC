@@ -1,0 +1,8 @@
+CXX=g++
+sfemGC:sfemGC.o
+	$(CXX) $^ -o $@ 
+%.o:%.cpp
+	$(CXX) -c  $<
+clean:
+	-rm *.o sfem  *~ 
+sfemGC.o: GC.hpp RNM_op.hpp RNM_tpl.hpp sfem.hpp RNM.hpp  RNM_opc.hpp assertion.hpp

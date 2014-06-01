@@ -1,0 +1,42 @@
+
+// Les constantes physiques
+    real L=40,H=20;
+    real T0= 46, Te=20 ;
+    real kond = 164.e-3, hc = 200.e-6;
+    real thetad= (T0 -Te)/Te;  
+    real crobin = (hc*L)/kond;  
+
+// domaine de calcul et maillage 
+    real H2L=H/(2*L);
+
+    border Gamma1(t=0,H2L) {label=1;x=0;y=t;};
+    border Gamma2(t=0,1)   {label=2;x=t;y=0;};
+    border Gamma3(t=0,H2L) {label=3;x=1;y=t;};
+    border Gamma4(t=0,1)   {label=4;x=t;y=H2L;};
+
+    int nbsegy= 10;
+    mesh Th=buildmesh(Gamma1(-nbsegy)+Gamma2( nbsegy/H2L)
+                     +Gamma3( nbsegy)+Gamma4(-nbsegy/H2L));
+    savemesh(Th,"freefem.msh");
+    plot(Th,wait=1);
+
+// définition de l'espace d'éléments finis 
+   fespace Vh(Th,P1);   
+
+// numéros logiques (labels) des frontières
+   int haut=4,bas=2,droite=3,gauche=1; 
+
+// formulation (variationnelle) du problème
+   Vh u,v;
+   problem A(u,v) = int2d(Th)(1.0*(dx(u)*dx(v)+dy(u)*dy(v))) 
+  +int1d(Th,haut)(u*v*crobin) + on(gauche,u=thetad);
+
+// solution du problème
+   A;  
+
+// visualisation de la solution
+   plot(u,wait=1,ps="temp_iso.eps",value=1);
+
+// sauvegarde du vecteur solution
+   ofstream f("freefem.sol");
+      f << u[];

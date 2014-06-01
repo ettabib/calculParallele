@@ -1,0 +1,74 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+                  CHAPITRE 10
+
+==========================================================================
+Bibliothèques  -> à inclure avec la commande #insert "Nom.hpp"
+============      avant la commande using namespace std;
+               -> il est recommandé de ne pas modifier ces fichiers
+==========================================================================
+fonction.hpp    | List 10.2| page 288| modélisation de l'algèbre de fonctions
+--------------------------------------------------------------------------
+
+
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+fonctionsimple.cpp| List 10.1| 286   | modélisation des fonctions
+--------------------------------------------------------------------------
+exp.cpp           | List 10.6| 299   | exemple d'une calculette simple
+--------------------------------------------------------------------------
+
+
+           dans le dossier : lg
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+exp_simple.y      | List 10.7| 302   | exemple de grammaire avec bison
+                  --------------------------------------------------------
+                   pour la compilation et l'exécution du programme
+                       bison exp_simple.y
+                       g++ exp_simple.tab.c -o exp_simple.exe
+                       echo "1+2, 3*2+4*2" | ./exp_simple.exe
+--------------------------------------------------------------------------
+exp.y             | List 10.8| 305   | exemple de langage utilisateur
+Expr.hpp          | List 10.9| 309   | (classes pour le langage)
+                  --------------------------------------------------------
+                   pour la compilation et l'exécution du programme
+                       bison exp.y
+                       g++ exp.tab.c -o exp.exe
+                       exp.exe < prog.lg
+                   (prog.lg contient la syntaxe utilisateur)
+--------------------------------------------------------------------------
+
+
+          dans le dossier : lgfem
+
+contient un langage utilisateur pour les éléments finis
+
+Les programmes nouveaux par rapport au chapitre 4 :
+====================================================
+prog.lg  --> contient les instructions utilisateur
+
+fem.y    --> programme avec des instructions bison (yacc)
+
+expr.cpp --> implémentation des opérations avec éléments finis
+
+=======================================================
+
+Pour la compilation, utiliser le Makefile
+ make
+ ./lgfem < prog.lg   
+
+ ./lgfem < prognl.lg

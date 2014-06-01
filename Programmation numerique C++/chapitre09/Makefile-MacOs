@@ -1,0 +1,24 @@
+listjava=CditBonjour.class  HelloApplet.class  aplet.class        apletmain.class    hello.class        nsc2ke2.class      winmw.class
+
+all: $(listjava) 
+
+CditBonjour.class libboujourEnC.jnilib:CditBonjour.java
+	javac CditBonjour.java
+	javah -jni CditBonjour
+	gcc -c boujourEnC.c -I/System/Library/Frameworks/JavaVM.framework/Versions/1.3.1/Headers/
+	gcc -bundle -o libbonjour.jnilib boujourEnC.o
+
+HelloApplet.class:HelloApplet.java
+	javac HelloApplet.java
+aplet.class:aplet.java
+	javac aplet.java
+apletmain.class:apletmain.java
+	javac apletmain.java
+hello.class:hello.java
+	javac hello.java
+nsc2ke2.class:nsc2ke2.java
+	javac nsc2ke2.java
+winmw.class:winmw.java
+	javac winmw.java
+clean:
+	-rm *.class *.o *.jnilib *~

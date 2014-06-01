@@ -1,0 +1,9 @@
+int n=2; real L=2;
+border a(t=L,0) {label=1;x=0;y=t;};
+border b(t=0,L) {label=2;x=t;y=0;};
+border c(t=0,L) {label=3;x=2;y=t;};
+border d(t=L,0) {label=4;x=t;y=2;};
+
+mesh Th=buildmesh(a(n)+b(n)+c(n)+d(n));
+savemesh(Th,"carre.msh");
+plot(Th,ps="carre.eps");

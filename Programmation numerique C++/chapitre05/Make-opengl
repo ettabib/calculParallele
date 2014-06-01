@@ -1,0 +1,39 @@
+# OpenGL et GLUT sous Linux
+GLLIBS= -L/sw/lib -L/usr/X11R6/lib  -lglut -lGLU -lGL
+GLINS= -I/usr/X11R6/include
+
+# OpenGL et GLUT sous Cygwin
+#GLLIBS= -lglut32 -lglu32 -lopengl32
+#GLINS= 
+
+
+# OpenGL et GLUT sous Mac OS X
+#GLLIBS= -framework OpenGl -framework GLUT -framework CoCoa
+#GLINS= -framework OpenGl -framework GLUT -framework CoCoa
+
+
+CXX=g++ 
+
+all: glplotmesh glplot glplotiso
+	echo compilation terminee
+
+glplotmesh: glplotmesh.o
+	$(CXX) $^ -o $@ $(GLLIBS)
+
+glplot: glplot.o
+	$(CXX) $^ -o $@ $(GLLIBS)
+
+glplotiso: glplotiso.o
+	$(CXX) $^ -o $@ $(GLLIBS)
+
+.cpp.o:
+	$(CXX) -c  $< $(GLINS)
+
+clean: 
+	-rm glplotmesh glplot glplotiso
+	-rm *.o *~
+#  les dependances 
+
+glplotmesh.o: RNM_op.hpp RNM_tpl.hpp sfem.hpp RNM.hpp  RNM_opc.hpp assertion.hpp
+glplot.o: RNM_op.hpp RNM_tpl.hpp sfem.hpp RNM.hpp  RNM_opc.hpp assertion.hpp
+glplotiso.o: RNM_op.hpp RNM_tpl.hpp sfem.hpp RNM.hpp  RNM_opc.hpp assertion.hpp

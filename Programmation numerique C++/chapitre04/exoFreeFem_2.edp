@@ -1,0 +1,18 @@
+    /* exercice 4.2, question 2 */
+//=================================================
+// le carre
+   border a1(t=-0.5, 0.5){ x= t; y = -0.5;};
+   border a2(t=-0.5, 0.5){ x= 0.5; y = t;};
+   border a3(t=-0.5, 0.5){ x= t; y = 0.5;};
+   border a4(t=-0.5, 0.5){ x= -0.5; y = t;};
+
+// l'ellipse
+  real x0=0.1, y0=0.1;
+  border e(t=0, 2*pi){ x=x0+0.2*cos(t); y =y0+0.1*sin(t);};
+
+// maillage sans trou (raffinement local)
+   int n=10;int m=15;
+   mesh carre2 = buildmesh(a1(n)+a2(n)+a3(-n)+a4(-n)+e(2*m));
+   plot(carre2,wait=1);
+
+

@@ -1,0 +1,31 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+                  CHAPITRE 7
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+eqinteg.cpp       | List 7.1 | 241   | solution de l'équation de Laplace 
+                  | List 7.2 | 242   |  sur une sphère (méthode intégrale)
+                  | List 7.3 | 243   |
+                  | List 7.4 | 244   |  
+                  --------------------------------------------------------
+                  !! deux fonctions ont été rajoutées pour visualiser les 
+                     résultats sous gnuplot : gnuplot_mesh3d
+                                              gnuplot_isos3d
+                  --------------------------------------------------------
+                   !! les résultats du programme sont
+                   --> sphere.bb visualisable avec le logiciel medit
+                   --> sphere-gnuplot-mesh contient le maillage 3D
+                       (sous gnuplot : splot 'sphere-gnuplot-mesh' w l)
+                   --> sphere-gnuplot-isos contient les iso-lignes en 3D
+                       (sous gnuplot : splot 'sphere-gnuplot-isos' w l)
+--------------------------------------------------------------------------

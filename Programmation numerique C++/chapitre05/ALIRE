@@ -1,0 +1,54 @@
+==================================================
+=         SIMULATION NUMERIQUE EN C++            =
+=    I. DANAILA, F. HECHT et  O. PIRONNEAU       =
+==================================================
+=     Dunod, Paris, 2003 ISBN 2 10 006975 6      =
+==================================================
+=      programmes et exercices corriges          =
+==================================================
+
+                  CHAPITRE 5
+
+==========================================================================
+Bibliothèques  -> à inclure avec la commande #insert "Nom.hpp"
+============      avant la commande using namespace std;
+               -> il est recommandé de ne pas modifier ces fichiers
+==========================================================================
+assertion.hpp   | assertions utilisateur (voir page 80)
+--------------------------------------------------------------------------
+RNM.hpp         | classe performantes pour la modélisation des vecteurs 
+RNM_op.hpp      |       matrices, tenseurs (voir chap3, page 93)
+RNM_opc.hpp     |il suffit d'inclure #include "RNM.hpp"
+RNM_tpl.hpp     | (les autres fichiers sont appelés automatiquement)
+--------------------------------------------------------------------------
+sfem.hpp        | contient les classes pour les éléments finis P1
+                |  discutées dans le paragraphe 4.5 page 134
+                | (il contient également le constructeur de la classe Mesh)
+--------------------------------------------------------------------------
+
+
+
+==========================================================================
+Programme         | Listing/ | Page  |     Obs
+                  | exercice | livre |
+==========================================================================
+glplotmesh.cpp    | List 5.1 | 181   | visualisation du maillage avec OpenGL
+                  |          |       | utilisation :
+                  |          |       |  ./glplotmesh Th.msh
+--------------------------------------------------------------------------
+glplot.cpp        | List 5.2 | 185   | visualisation de la solution avec OpenGL
+                  |          |       | utilisation :
+                  |          |       |  ./glplot  Th.msh t-14.dta 0.5
+--------------------------------------------------------------------------
+glplotiso.cpp     |          |       | version améliorée de glplot avec       
+                  |          |       | -> tracé des iso-lignes en couleurs
+                  |          |       | -> pilotage du graphique par la souris
+                  |          |       | utilisation :
+                  |          |       |  ./glplotiso  Th.msh t-14.dta 0.5
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+!!! Pour compiler les programmes, sélectionner les bonnes options pour l'appel
+    des bibliothèques dans le fichier Make-opengl (voir livre, page 180)
+    et lancer : make -f Make-opengl
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------

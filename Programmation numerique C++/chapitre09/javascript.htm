@@ -1,0 +1,71 @@
+<HTML><BODY><SCRIPT language="javascript">
+
+//file: javascript.htm
+
+// On vérifie que le browser supporte Javascript.
+
+// Utiliser la classe correspondante à la fonction : ici 'document'
+
+
+
+document.writeln("<B>Javascript</B> supporté," + " on peut continuer...<BR><BR>")
+
+
+
+document.write("Calcul de sqrt(2) = ")
+
+a = 2;                          // Une variable
+
+document.writeln(Math.sqrt(a))  // Un petit calcul utilisant la classe Math
+
+                                // Cette fonction va piloter le navigateur
+
+function show() {
+
+  location.replace ("http://www.ann.jussieu.fr");
+
+  alert("On change de page Web : direction le LAN");
+
+}
+
+
+
+</SCRIPT><BR><BR>
+
+
+
+<FORM>
+
+<!-- Utilisation de Javascript a partir de la class form --!>
+
+<INPUT TYPE=button VALUE="Click here" onclick="javascript:show()">
+
+
+
+<BR><BR>
+
+<INPUT TYPE=button VALUE="Nombre Aléatoire"
+
+      OnClick="form.num.value=parseInt(Math.random()*100)">
+
+<INPUT TYPE="text" NAME="num" SIZE=10>
+
+</FORM>
+
+<BR
+
+<! Création d'une nouvelle instance de la classe Date !>
+
+<SCRIPT language=javascript>
+
+today = new Date();
+
+dateGMT = today.toGMTString();
+
+document.write("Date au format GMT :"+dateGMT);
+
+</SCRIPT>
+
+
+
+</BODY></HTML> 
