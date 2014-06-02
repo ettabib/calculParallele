@@ -8,11 +8,11 @@ MyIp='194.167.216.245'
 #MyIP='134.214.254.147'
 setDefaultClusterOptions('master'=MyIp) 
 #pour démarrer un worker sur hml
-cl<-makeCluster(c("mini"),type="SOCK") 
-cl <- makeSOCKcluster(c("localhost","mini"))
+#cl<-makeCluster(c("mini"),type="SOCK") 
+#cl <- makeSOCKcluster(c("localhost","mini"))
 cl <- makeSOCKcluster(c("localhost","localhost"))
 #pour afficher le nom de la machine, le login et le type de machine.
-clusterCall(cl,function() Sys.info()[c("nodename","user","machine")]) 
+#clusterCall(cl,function() Sys.info()[c("nodename","user","machine")]) 
 # pour stopper le cluster
 stopCluster(cl)
 # pour démarrer 4 workers sur hml

@@ -1,37 +1,40 @@
 ##' version de nipals sans donnees manquantes
 ##' @title 
-##' @param cl 
-##' @param X 
-##' @param r 
-##' @param epsilon 
-##' @param Iter 
+##' @param cl the cluster
+##' @param X the data
+##' @param nf the number of principal component to keep 
+##' @param epsilon the precion of ph convergence (norm(p(h)-p(h-1),type="2") > epsilon)
+##' @param scale 
+##' @param center 
+##' @param Iter number of iteration : for 10 iteration we exprimentaly reach 0.000001
+##' precision in the convergence of ph
 ##' @return 
 ##' @author Mohammad
-Nipals.sdm <- function(cl,X,r,epsilon=10^-6,Iter=5,scale=TRUE,center=TRUE){
+Nipals.sdm <- function(cl,X,nf,epsilon=10^-6,scale=TRUE,center=TRUE){
     DATA=scale(x=X,scale=scale,center=scale)
+
     #Etape 1
     XH.1=DATA
     XH=DATA
     n=dim(X)[1]
     p=dim(X)[2]
-    T <- matrix(nrow=n,ncol=r)
-    P <- matrix(nrow=p,ncol=r)
-    
-    for(h in 1:r){
-        
+    T <- matrix(nrow=n,ncol=nf)
+    P <- matrix(nrow=p,ncol=nf)
+    for(h in 1:nf){        
         ph=rep(x=0,times=p)
         ph.1 <- ph+2*epsilon
         #Etape 2.1
         th <- XH.1[,1]
-        #Etabpe2.2
-        iter=0
-        while(norm(ph-ph.1,type="2") > epsilon && iter < Iter){
-            ph <- P.Mult.Matrix.Vect(cl=cl,M=as.matrix(t(XH.1)),V=th) / P.Mult.Vect.Vect(cl=cl,U=th,V=th)
+        #Etape2.2
+        while(norm(ph-ph.1,type="2") > epsilon ){
+            ph.1 <- ph
+            v <- P.Mult.Matrix.Vect(cl=cl,M=as.matrix(t(XH.1)),V=th)
+            k <- norm(th^2,type="2")
+            ph <-  v / k
             #Normer ph
-            ph <- ph  / sqrt(P.Mult.Vect.Vect(cl=cl,U=ph,V=ph))
+            ph <- ph  / norm(ph,type="2")
             #Etape 2.2.3
-            th <- P.Mult.Matrix.Vect(cl=cl,M=as.matrix(XH.1),V=ph)  / P.Mult.Vect.Vect(cl=cl,U=ph,V=ph)
-            iter=iter+1
+            th <- P.Mult.Matrix.Vect(cl=cl,M=as.matrix(XH.1),V=ph)
         }
         #Etape 2.3
         XH <- XH.1 - P.Mult.Matrix.Matrix(cl=cl,M=as.matrix(th),N=t(as.matrix(ph)))
@@ -44,7 +47,7 @@ Nipals.sdm <- function(cl,X,r,epsilon=10^-6,Iter=5,scale=TRUE,center=TRUE){
     res$li <- T
     res$c1 <- P
     res$eig <- apply(T,2,var)
-    res$tab  <- 
+    res$tab  <- DATA
     return (res)
 }
 
@@ -57,22 +60,24 @@ Nipals.sdm <- function(cl,X,r,epsilon=10^-6,Iter=5,scale=TRUE,center=TRUE){
 ##' @author Mohammad
 ##' @param cl the cluster (snow)
 ##' @param X The matrice of data (n,p)
-##' @param r The rank of X
+##' @param nf 
 ##' @param epsilon the presicion
 ##' @param Iter 
-##' @param scater 
+##' @param scale 
 ##' @param center 
-Nipals <- function(cl,X,r,epsilon=10^-6,Iter=5,scale=TRUE,center=TRUE){
+##' @param r The rank of X
+
+Nipals <- function(cl,X,nf,epsilon=10^-6,Iter=5,scale=TRUE,center=TRUE){
     DATA=scale(x=X,scale=scale,center=scale)
     #Etape 1
     XH.1=DATA
     XH=DATA
     n=dim(X)[1]
     p=dim(X)[2]
-    T <- matrix(nrow=n,ncol=r)
-    P <- matrix(nrow=p,ncol=r)
+    T <- matrix(nrow=n,ncol=nf)
+    P <- matrix(nrow=p,ncol=nf)
     #Etape 2
-    for(h in 1:r) {
+    for(h in 1:nf) {
         ph=rep(x=0,times=p)
         ph1 <- ph+2*epsilon
        #Etape 2.1
@@ -104,12 +109,12 @@ Nipals <- function(cl,X,r,epsilon=10^-6,Iter=5,scale=TRUE,center=TRUE){
                    cat("b est null")
                    exit;
                }
-               ph[j] <- a / b
+               ph[j] <-  a / b
            }
            
             #Etape 2.2.2
            #normer ph a 1
-           ph <- ph/norm(x=ph,type="2")
+           ph <- ph / norm(x=ph,type="2")
 
             #Etape 2.2.3
            for(i in 1:n){
